@@ -1,20 +1,70 @@
-import {useLocalStorage} from "./useLocalStorage";
-import { useEffect } from "react";
+import useLocalStorage from "./useLocalStorage";
+import { useEffect } from 'react'
 
-export const useDarkMode = (key) => {
-  const [inputValue, setInputValue] = useLocalStorage(key);
+export default function useDarkMode(key) {
+  const [inputValue, setInputValue] = useLocalStorage(key)
 
-  useEffect(() => {
-    if (darkMode === true) {
-      document.querySelector("body").classList.add("dark-mode");
-    } else {
-      document.querySelector("body").classList.remove("dark-mode");
+  useEffect(()=>{
+    if (inputValue === true){
+        document.querySelector('body').classList.add('dark-mode')
+    }else{
+        document.querySelector('body').classList.remove('dark-mode')
     }
-  }, [inputValue]);
+  },[inputValue])
+
+  return [inputValue, setInputValue]
+}
 
 
-  const onInputChange = evt => {
-    setInputValue(evt.target.value);
-  };
-  return [inputValue, onInputChange]
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import { useLocalStorage } from "./useLocalStorage";
+// import { useEffect } from "react";
+
+// export const useDarkMode = key => {
+//   const [inputValue, setInputValue] = useLocalStorage(key);
+
+//   useEffect(() => {
+//     if (inputValue === true) {
+//       document.querySelector("body").classList.add("dark-mode");
+//     } else {
+//       document.querySelector("body").classList.remove("dark-mode");
+//     }
+//   }, [inputValue]);
+
+// //   const onInputChange = evt => {
+// //     setInputValue(evt.target.value);
+// //   };
+//   return [inputValue, setInputValue];
+// };
