@@ -5,7 +5,7 @@ export default function useDarkMode(key) {
   const [inputValue, setInputValue] = useLocalStorage(key)
 
   useEffect(()=>{
-    if (inputValue === true){
+    if (inputValue){
         document.querySelector('body').classList.add('dark-mode')
     }else{
         document.querySelector('body').classList.remove('dark-mode')
